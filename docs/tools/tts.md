@@ -59,7 +59,7 @@ The SDK registers this write-approved custom tool only when `speechgen.enabled=t
 - DeepInfra default model: `hexgrad/Kokoro-82M`; the server default voice applies unless `voice_id` is set.
 - Built-in xAI voices listed in the description: `ara`, `eve`, `leo`, `rex`, `sal`; custom xAI voice ids are accepted.
 - Default local model: `kokoro` (`onnx-community/Kokoro-82M-v1.0-ONNX`, q8).
-- Default local voice: `af_heart`; supported local voices include `af_heart`, `af_bella`, `af_nicole`, `af_aoede`, `af_kore`, `af_sarah`, `am_michael`, `am_fenrir`, `am_puck`, `bf_emma`, `bm_george`, and `bm_fable`.
+- Default local voice: `af_heart`; supported local voices include `af_heart`, `af_bella`, `af_nicole`, `af_aoede`, `af_kore`, `af_sarah`, `am_michael`, `am_fenrir`, `am_puck`, `bf_emma`, `bm_george`, `bm_fable`, and the Brazilian Portuguese `pf_dora`, `pm_alex`, `pm_santa` (these phonemize through a native `espeak-ng` binary).
 
 ## Errors
 
