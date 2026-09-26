@@ -4,6 +4,7 @@
 
 ### Added
 
+- Added Brazilian Portuguese voices (`pf_dora`, `pm_alex`, `pm_santa`) to the local Kokoro TTS. The kokoro-js side runtime is patched on load to accept them and to phonemize Portuguese through a native `espeak-ng` binary (the bundled WASM phonemizer carries English voice data only), so `espeak-ng` must be installed separately (e.g. `brew install espeak-ng`) to synthesize them.
 - Added trusted additional context support for extension and hook tool results, including `ctx.addAdditionalContext()` for registered tools, allowing instructions to be passed to the model without altering the tool result.
 - Added dictation support to `/btw` follow-up input, including microphone controls on the follow-up line.
 - Added opt-in CUDA support to the Nix package for tiny-model inference with the ONNX Runtime CUDA execution provider.

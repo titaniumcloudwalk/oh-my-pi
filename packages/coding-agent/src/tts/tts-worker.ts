@@ -13,6 +13,7 @@ import {
 } from "../subprocess/worker-runtime";
 import { resolveTinyModelDevicePreference, type TinyModelDevice, tinyModelDeviceLoadOrder } from "../tiny/device";
 import { resolveTinyModelDtypeOverride, type TinyModelDtype } from "../tiny/dtype";
+import { patchKokoroPortugueseVoices } from "./kokoro-patch";
 import { getTtsLocalModelSpec, resolveTtsVoice, type TtsLocalModelKey, type TtsLocalModelSpec } from "./models";
 import {
 	getTtsRuntimeDir,
@@ -148,6 +149,7 @@ function loadKokoroRuntime(
 				}),
 		});
 		const nodeModules = await installSharpStubResolver(runtimeDir);
+		await patchKokoroPortugueseVoices(nodeModules);
 		const kokoroEntry = resolveRuntimeModule(nodeModules, KOKORO_PACKAGE);
 		if (!kokoroEntry) throw new Error(`Unable to resolve ${KOKORO_PACKAGE} in runtime at ${nodeModules}`);
 		const transformersEntry = resolveRuntimeModule(nodeModules, TRANSFORMERS_PACKAGE);

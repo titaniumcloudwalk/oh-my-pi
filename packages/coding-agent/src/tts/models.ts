@@ -33,9 +33,11 @@ export interface TtsLocalModelSpec {
 
 /**
  * Curated Kokoro-82M voice catalog. Kokoro ships ~28 voices; we surface the
- * higher-graded ones across American/British × female/male so the picker stays
- * useful without listing every D/F-grade sample. `af_heart` (grade A) leads and
- * is the default voice. Grades are Kokoro's own `overallGrade` ratings.
+ * higher-graded ones across American/British × female/male plus the Brazilian
+ * Portuguese trio (phonemized through a native `espeak-ng` binary — see
+ * `kokoro-patch.ts`) so the picker stays useful without listing every
+ * D/F-grade sample. `af_heart` (grade A) leads and is the default voice.
+ * Grades are Kokoro's own `overallGrade` ratings.
  */
 export const KOKORO_VOICES: readonly TtsLocalVoiceSpec[] = [
 	{ id: "af_heart", label: "Heart (American female)" },
@@ -50,6 +52,9 @@ export const KOKORO_VOICES: readonly TtsLocalVoiceSpec[] = [
 	{ id: "bf_emma", label: "Emma (British female)" },
 	{ id: "bm_george", label: "George (British male)" },
 	{ id: "bm_fable", label: "Fable (British male)" },
+	{ id: "pf_dora", label: "Dora (Brazilian Portuguese female)" },
+	{ id: "pm_alex", label: "Alex (Brazilian Portuguese male)" },
+	{ id: "pm_santa", label: "Santa (Brazilian Portuguese male)" },
 ] as const;
 
 /** Default voice within the default model — Kokoro's flagship grade-A voice. */

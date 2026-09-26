@@ -202,7 +202,7 @@ The `speech` role accepts TTS catalog models and the `dictation` role accepts ST
 | -------------- | ----------------------------------------- | --------- | -------- | -------------------------------------- |
 | `local/kokoro` | `onnx-community/Kokoro-82M-v1.0-ONNX`    | q8        | ~100 MB  | 24 kHz Kokoro-82M, fully local ONNX TTS |
 
-Kokoro voice selection remains independent of the model role. Set `tts.localVoice` for the `tts` tool and `speech.voice` for assistant-output vocalization. Available local voice ids are `af_heart` (default), `af_bella`, `af_nicole`, `af_aoede`, `af_kore`, `af_sarah`, `am_michael`, `am_fenrir`, `am_puck`, `bf_emma`, `bm_george`, and `bm_fable`. Changing voices does not download another model.
+Kokoro voice selection remains independent of the model role. Set `tts.localVoice` for the `tts` tool and `speech.voice` for assistant-output vocalization. Available local voice ids are `af_heart` (default), `af_bella`, `af_nicole`, `af_aoede`, `af_kore`, `af_sarah`, `am_michael`, `am_fenrir`, `am_puck`, `bf_emma`, `bm_george`, `bm_fable`, plus the Brazilian Portuguese voices `pf_dora`, `pm_alex`, and `pm_santa`. Changing voices does not download another model. The Portuguese voices phonemize through a native `espeak-ng` binary (install it separately, e.g. `brew install espeak-ng`); without it they fail at synthesis time while the English voices are unaffected.
 
 ### Speech to text
 
