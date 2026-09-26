@@ -348,12 +348,14 @@ describe("createTools", () => {
 		expect(names).toContain("rewind");
 	});
 
-	it("withholds wait from subagents even when explicitly requested", async () => {
+	// f8d4f11df8 lets subagents that can start background work block on `wait`;
+	// the executor grants it and createTools no longer strips it by depth.
+	it("keeps an explicitly requested wait for subagents when a wake source is enabled", async () => {
 		const settings = createSettingsWithOverrides({ "async.enabled": true });
 		const main = (await createTools(createTestSession({ settings }), ["read", "wait"])).map(t => t.name);
 		const sub = (await createTools(createTestSession({ taskDepth: 1, settings }), ["read", "wait"])).map(t => t.name);
 		expect(main).toContain("wait");
-		expect(sub).not.toContain("wait");
+		expect(sub).toContain("wait");
 	});
 
 	it("excludes checkpoint/rewind from subagent when not explicitly requested", async () => {
